@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamePortal - Koleksi Game Online Terbaik</title>
+    <link rel="stylesheet" href="Style.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>GamePortal</h1>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Cari game...">
+                <button class="search-button">🔍</button>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Categories -->
+        <div class="categories">
+            <button class="category-btn active">Semua</button>
+            <button class="category-btn">Aksi</button>
+            <button class="category-btn">Petualangan</button>
+            <button class="category-btn">Puzzle</button>
+            <button class="category-btn">Balapan</button>
+            <button class="category-btn">Olahraga</button>
+            <button class="category-btn">Strategi</button>
+            <button class="category-btn">Tembak-tembakan</button>
+        </div>
+        
+        <!-- Game Grid -->
+        <div class="game-grid">
+            <!-- Game 1 -->
+            <div class="game-card">
+                <div class="game-image">🚀</div>
+                <div class="game-info">
+                    <h3 class="game-title">Space Adventure</h3>
+                    <p class="game-description">Petualangan luar angkasa yang menegangkan</p>
+                    <button class="play-btn" onclick="openGame('Space Adventure')">Mainkan</button>
+                </div>
+            </div>
+            
+            <!-- Game 2 -->
+            <div class="game-card">
+                <div class="game-image">🏎️</div>
+                <div class="game-info">
+                    <h3 class="game-title">Speed Racer</h3>
+                    <p class="game-description">Balapan mobil dengan kecepatan tinggi</p>
+                    <button class="play-btn" onclick="openGame('Speed Racer')">Mainkan</button>
+                </div>
+            </div>
+            
+            <!-- Game 3 -->
+            <div class="game-card">
+                <div class="game-image">🧩</div>
+                <div class="game-info">
+                    <h3 class="game-title">Puzzle Master</h3>
+                    <p class="game-description">Tantang otak Anda dengan puzzle menantang</p>
+                    <button class="play-btn" onclick="openGame('Puzzle Master')">Mainkan</button>
+                </div>
+            </div>
+            
+            <!-- Game 4 -->
+            <div class="game-card">
+                <div class="game-image">⚽</div>
+                <div class="game-info">
+                    <h3 class="game-title">Soccer Stars</h3>
+                    <p class="game-description">Game sepak bola dengan grafis yang memukau</p>
+                    <button class="play-btn" onclick="openGame('Soccer Stars')">Mainkan</button>
+                </div>
+            </div>
+            
+            <!-- Game 5 -->
+            <div class="game-card">
+                <div class="game-image">🏹</div>
+                <div class="game-info">
+                    <h3 class="game-title">Archery Challenge</h3>
+                    <p class="game-description">Uji ketepatan panahan Anda</p>
+                    <button class="play-btn" onclick="openGame('Archery Challenge')">Mainkan</button>
+                </div>
+            </div>
+            
+            <!-- Game 6 -->
+            <div class="game-card">
+                <div class="game-image">🏰</div>
+                <div class="game-info">
+                    <h3 class="game-title">Castle Defense</h3>
+                    <p class="game-description">Lindungi kastil Anda dari serangan musuh</p>
+                    <button class="play-btn" onclick="openGame('Castle Defense')">Mainkan</button>
+                </div>
+            </div>
+            
+            <!-- Game 7 -->
+            <div class="game-card">
+                <div class="game-image">🍕</div>
+                <div class="game-info">
+                    <h3 class="game-title">Pizza Chef</h3>
+                    <p class="game-description">Jadi koki pizza terbaik di kota</p>
+                    <button class="play-btn" onclick="openGame('Pizza Chef')">Mainkan</button>
+                </div>
+            </div>
+            
+            <!-- Game 8 -->
+            <div class="game-card">
+                <div class="game-image">🦖</div>
+                <div class="game-info">
+                    <h3 class="game-title">Dino Run</h3>
+                    <p class="game-description">Lari dan hindari rintangan sebagai dinosaurus</p>
+                    <button class="play-btn" onclick="openGame('Dino Run')">Mainkan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#" class="footer-link">Tentang Kami</a>
+                <a href="#" class="footer-link">Kebijakan Privasi</a>
+                <a href="#" class="footer-link">Syarat dan Ketentuan</a>
+                <a href="#" class="footer-link">Kontak</a>
+            </div>
+            <p class="copyright">© 2025 GamePortal. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+    
+    <!-- Game Modal -->
+    <div class="game-modal" id="gameModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeGame()">×</button>
+            <iframe class="game-frame" id="gameFrame" src=""></iframe>
+        </div>
+    </div>
+    
+    <script>
+        // Fungsi untuk membuka game di modal
+        function openGame(gameName) {
+            document.getElementById('gameModal').style.display = 'flex';
+            // Di sini seharusnya ada URL game yang sesuai
+            // Untuk demo, kita hanya menampilkan placeholder
+            document.getElementById('gameFrame').src = 'about:blank';
+        }
+        
+        // Fungsi untuk menutup modal game
+        function closeGame() {
+            document.getElementById('gameModal').style.display = 'none';
+            document.getElementById('gameFrame').src = '';
+        }
+        
+        // Fungsi untuk mengatur kategori aktif
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Di sini akan ada logika untuk memfilter game berdasarkan kategori
+                // Untuk demo, kita hanya mengubah tampilan tombol
+            });
+        });
+        
+        // Fungsi pencarian
+        document.querySelector('.search-button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-input').value.toLowerCase();
+            // Di sini akan ada logika untuk mencari game berdasarkan nama
+            alert('Mencari: ' + searchTerm);
+        });
+        
+        // Pencarian dengan tombol Enter
+        document.querySelector('.search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-button').click();
+            }
+        });
+    </script>
+</body>
+</html>
