@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Sederhana</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #222;
+    }
+    #gameCanvas {
+      background: white;
+      border: 2px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let x = 200, y = 200; // posisi bola
+    const radius = 20;
+    const speed = 5;
+
+    function drawBall() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height); 
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = "blue";
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function update() {
+      drawBall();
+      requestAnimationFrame(update);
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowUp") y -= speed;
+      if (event.key === "ArrowDown") y += speed;
+      if (event.key === "ArrowLeft") x -= speed;
+      if (event.key === "ArrowRight") x += speed;
+    });
+
+    update();
+  </script>
+</body>
+</html>

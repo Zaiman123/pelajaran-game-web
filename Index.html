@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GamePortal - Koleksi Game Online Terbaik</title>
+        <title>GamePortal - Koleksi Game Online Terbaik</title>
+        <link rel="stylesheet" href="Style.css">
  
 </head>
 <body>
@@ -45,6 +46,15 @@
                     <button class="play-btn" onclick="openGame('Space Adventure')">Mainkan</button>
                 </div>
             </div>
+                <!-- Catch the Fruit Game -->
+                <div class="game-card">
+                    <div class="game-image">🍎</div>
+                    <div class="game-info">
+                        <h3 class="game-title">Catch the Fruit</h3>
+                        <p class="game-description">Tangkap buah sebanyak mungkin!</p>
+                        <button class="play-btn" onclick="playCatchTheFruit()">Mainkan</button>
+                    </div>
+                </div>
             
             <!-- Game 2 -->
             <div class="game-card">
@@ -180,6 +190,10 @@
                 document.querySelector('.search-button').click();
             }
         });
+        // Fungsi untuk menjalankan Catch the Fruit
+        function playCatchTheFruit() {
+            window.open('catch-the-fruit.html', '_blank');
+        }
     </script>
 </body>
 </html>
