@@ -85,6 +85,95 @@
 
         <div class="sidebar-right"></div>
     </div>
+<<<<<<< HEAD
+    
+    <script>
+        // Fungsi untuk membuka game di modal
+        function openGame(gameName) {
+            document.getElementById('gameModal').style.display = 'flex';
+            document.getElementById('gameFrame').src = 'about:blank';
+        }
+
+        // Fungsi untuk menutup modal game
+        function closeGame() {
+            document.getElementById('gameModal').style.display = 'none';
+            document.getElementById('gameFrame').src = '';
+        }
+
+        // Fungsi untuk menjalankan Catch the Fruit
+        function playCatchTheFruit() {
+            window.open('catch-the-fruit.html', '_blank');
+        }
+
+        // Fungsi untuk mengambil dan menampilkan game dari search.php
+        function fetchGames(category = '', name = '') {
+            const params = new URLSearchParams();
+            if (category && category !== 'semua') params.append('category', category);
+            if (name) params.append('name', name);
+            fetch('search.php?' + params.toString())
+                .then(response => response.json())
+                .then(data => updateGameGrid(data))
+                .catch(() => updateGameGrid([]));
+        }
+
+        // Fungsi untuk update tampilan game-grid
+        function updateGameGrid(games) {
+            const grid = document.querySelector('.game-grid');
+            if (!games.length) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center">Tidak ada game ditemukan.</p>';
+                return;
+            }
+            grid.innerHTML = games.map(game => {
+                let playBtn = '';
+                if (game.name === 'Catch the Fruit') {
+                    playBtn = `<button class="play-btn" onclick="playCatchTheFruit()">Mainkan</button>`;
+                } else {
+                    playBtn = `<button class="play-btn" onclick="openGame('${game.name.replace(/'/g, "\\'")}")">Mainkan</button>`;
+                }
+                return `
+                <div class="game-card">
+                    <div class="game-image"></div>
+                    <div class="game-info">
+                        <h3 class="game-title">${game.name}</h3>
+                        <p class="game-description">Kategori: ${game.category}</p>
+                        ${playBtn}
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        // Event handler kategori
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                const category = this.textContent.trim().toLowerCase();
+                const name = document.querySelector('.search-input').value.trim();
+                fetchGames(category, name);
+            });
+        });
+
+        // Event handler pencarian
+        document.querySelector('.search-button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-input').value.trim();
+            const activeCategory = document.querySelector('.category-btn.active').textContent.trim().toLowerCase();
+            fetchGames(activeCategory, searchTerm);
+        });
+
+        // Pencarian dengan tombol Enter
+        document.querySelector('.search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-button').click();
+            }
+        });
+
+        // Inisialisasi: tampilkan semua game saat pertama kali
+        window.addEventListener('DOMContentLoaded', function() {
+            fetchGames();
+        });
+    </script>
+=======
 
     <footer class="footer">
         <div class="footer-section">
@@ -104,5 +193,6 @@
             <p>081393131</p>
         </div>
     </footer>
+>>>>>>> 11e08ad04130dc41486b38345c68bcdef300e0a6
 </body>
 </html>
