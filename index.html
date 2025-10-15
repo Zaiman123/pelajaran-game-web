@@ -142,47 +142,87 @@
         // Fungsi untuk membuka game di modal
         function openGame(gameName) {
             document.getElementById('gameModal').style.display = 'flex';
-            // Di sini seharusnya ada URL game yang sesuai
-            // Untuk demo, kita hanya menampilkan placeholder
             document.getElementById('gameFrame').src = 'about:blank';
         }
-        
+
         // Fungsi untuk menutup modal game
         function closeGame() {
             document.getElementById('gameModal').style.display = 'none';
             document.getElementById('gameFrame').src = '';
         }
-        
-        // Fungsi untuk mengatur kategori aktif
+
+        // Fungsi untuk menjalankan Catch the Fruit
+        function playCatchTheFruit() {
+            window.open('catch-the-fruit.html', '_blank');
+        }
+
+        // Fungsi untuk mengambil dan menampilkan game dari search.php
+        function fetchGames(category = '', name = '') {
+            const params = new URLSearchParams();
+            if (category && category !== 'semua') params.append('category', category);
+            if (name) params.append('name', name);
+            fetch('search.php?' + params.toString())
+                .then(response => response.json())
+                .then(data => updateGameGrid(data))
+                .catch(() => updateGameGrid([]));
+        }
+
+        // Fungsi untuk update tampilan game-grid
+        function updateGameGrid(games) {
+            const grid = document.querySelector('.game-grid');
+            if (!games.length) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center">Tidak ada game ditemukan.</p>';
+                return;
+            }
+            grid.innerHTML = games.map(game => {
+                let playBtn = '';
+                if (game.name === 'Catch the Fruit') {
+                    playBtn = `<button class="play-btn" onclick="playCatchTheFruit()">Mainkan</button>`;
+                } else {
+                    playBtn = `<button class="play-btn" onclick="openGame('${game.name.replace(/'/g, "\\'")}")">Mainkan</button>`;
+                }
+                return `
+                <div class="game-card">
+                    <div class="game-image"></div>
+                    <div class="game-info">
+                        <h3 class="game-title">${game.name}</h3>
+                        <p class="game-description">Kategori: ${game.category}</p>
+                        ${playBtn}
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        // Event handler kategori
         document.querySelectorAll('.category-btn').forEach(button => {
             button.addEventListener('click', function() {
-                document.querySelectorAll('.category-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
+                document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
-                
-                // Di sini akan ada logika untuk memfilter game berdasarkan kategori
-                // Untuk demo, kita hanya mengubah tampilan tombol
+                const category = this.textContent.trim().toLowerCase();
+                const name = document.querySelector('.search-input').value.trim();
+                fetchGames(category, name);
             });
         });
-        
-        // Fungsi pencarian
+
+        // Event handler pencarian
         document.querySelector('.search-button').addEventListener('click', function() {
-            const searchTerm = document.querySelector('.search-input').value.toLowerCase();
-            // Di sini akan ada logika untuk mencari game berdasarkan nama
-            alert('Mencari: ' + searchTerm);
+            const searchTerm = document.querySelector('.search-input').value.trim();
+            const activeCategory = document.querySelector('.category-btn.active').textContent.trim().toLowerCase();
+            fetchGames(activeCategory, searchTerm);
         });
-        
+
         // Pencarian dengan tombol Enter
         document.querySelector('.search-input').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 document.querySelector('.search-button').click();
             }
         });
-        // Fungsi untuk menjalankan Catch the Fruit
-        function playCatchTheFruit() {
-            window.open('catch-the-fruit.html', '_blank');
-        }
+
+        // Inisialisasi: tampilkan semua game saat pertama kali
+        window.addEventListener('DOMContentLoaded', function() {
+            fetchGames();
+        });
     </script>
 </body>
 </html>
