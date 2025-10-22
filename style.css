@@ -1,12 +1,12 @@
-/* === BAGIAN HEADER/NAVBAR === */
+/* === BAGIAN HEADER / NAVBAR === */
 .site-header {
     background-color: #1a1a1a;
-    background-image: url('https://www.transparenttextures.com/patterns/dark-metal-grid.png');
+    background-image: url('https://www.transparenttextures.com/patterns/dark-metal-grid.png'); /* Tekstur latar belakang */
     padding: 0.5rem 0;
     border-bottom: 2px solid #111;
-    position: sticky;
+    position: sticky; /* Menempel di atas saat discroll */
     top: 0;
-    z-index: 100;
+    z-index: 100; /* Supaya berada di atas elemen lain */
 }
 
 .navbar {
@@ -27,12 +27,13 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* Navigasi utama */
 .main-nav ul {
     margin: 0;
     padding: 0;
-    list-style: none;
+    list-style: none; /* Menghilangkan bullet */
     display: flex;
-    gap: 5.5rem;
+    gap: 5.5rem; /* Jarak antar menu */
 }
 
 .main-nav a {
@@ -45,12 +46,14 @@
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
+/* Warna dan efek saat hover atau aktif */
 .main-nav a:hover,
 .main-nav a.active {
     color: #ffffff;
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
 }
 
+/* Tombol saran & masukan */
 .download-btn {
     background-color: #00a09a;
     color: #ffffff;
@@ -67,7 +70,7 @@
     background-color: #00c4bf;
 }
 
-/* === BAGIAN HERO SECTION BARU === */
+/* === BAGIAN HERO SECTION (Tampilan utama di halaman depan) === */
 .hero-section {
     background-color: #1a1a1d;
     color: #ffffff;
@@ -78,6 +81,7 @@
     overflow: hidden;
 }
 
+/* Kontainer utama untuk teks dan gambar */
 .hero-content {
     max-width: 1320px;
     margin: 0 auto;
@@ -89,9 +93,10 @@
 }
 
 .hero-text {
-    flex-basis: 45%;
+    flex-basis: 45%; /* Lebar 45% dari container */
 }
 
+/* Judul besar */
 .hero-text h1 {
     font-family: 'Lato', sans-serif;
     font-size: 3.5rem;
@@ -100,6 +105,7 @@
     margin: 0 0 1rem 0;
 }
 
+/* Paragraf ajakan */
 .hero-text p {
     font-size: 1.1rem;
     color: #a0a8b4;
@@ -107,6 +113,7 @@
     margin-bottom: 2rem;
 }
 
+/* Tombol aksi (Coba Sekarang) */
 .hero-button {
     display: inline-block;
     border: 2px solid #ffffff;
@@ -125,6 +132,7 @@
     color: #1a1a1d;
 }
 
+/* Gambar hero (preview game launcher) */
 .hero-image {
     flex-basis: 55%;
 }
@@ -135,7 +143,7 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* === KODE CSS LAMA (DENGAN PENYESUAIAN) === */
+/* === BODY & BAGIAN GRID GAME === */
 body {
     margin: 0;
     font-family: 'Lato', sans-serif;
@@ -144,12 +152,14 @@ body {
     padding-bottom: 3rem;
 }
 
+/* Container utama daftar game */
 .character-select-container {
     max-width: 1320px;
     margin: 0 auto;
     padding: 3rem 1.5rem;
 }
 
+/* Judul untuk bagian grid */
 .grid-title {
     text-align: center;
     font-size: 2rem;
@@ -159,12 +169,14 @@ body {
     letter-spacing: 1px;
 }
 
+/* Grid game */
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Grid fleksibel */
     gap: 1.2rem;
 }
 
+/* Kartu individual game */
 .character-card {
     position: relative;
     display: block;
@@ -178,11 +190,13 @@ body {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Efek hover pada kartu */
 .character-card:hover {
     transform: scale(1.05) translateY(-6px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
 }
 
+/* Bagian teks di dalam kartu */
 .character-info {
     position: absolute;
     bottom: 0;
@@ -200,6 +214,7 @@ body {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
+/* === Background image untuk tiap game === */
 .slayer-m   { background-image: url('https://placehold.co/300x120/334/white?text=Slayer+M'); }
 .slayer-f   { background-image: url('https://placehold.co/300x120/522/white?text=Slayer+F'); }
 .fighter-f  { background-image: url('https://placehold.co/300x120/662/white?text=Fighter+F'); }
@@ -213,10 +228,50 @@ body {
 .thief      { background-image: url('https://placehold.co/300x120/255/white?text=Thief'); }
 .knight     { background-image: url('https://placehold.co/300x120/525/white?text=Knight'); }
 
+/* === Warna gradasi latar belakang kartu === */
 .bg-blue    { background: linear-gradient(90deg, rgba(3, 66, 128, 0.9) 0%, rgba(3, 66, 128, 0.1) 100%); }
 .bg-red     { background: linear-gradient(90deg, rgba(140, 24, 53, 0.9) 0%, rgba(140, 24, 53, 0.1) 100%); }
 .bg-yellow  { background: linear-gradient(90deg, rgba(179, 101, 2, 0.9) 0%, rgba(179, 101, 2, 0.1) 100%); }
 .bg-green   { background: linear-gradient(90deg, rgba(3, 115, 55, 0.9) 0%, rgba(3, 115, 55, 0.1) 100%); }
 .bg-purple  { background: linear-gradient(90deg, rgba(78, 39, 128, 0.9) 0%, rgba(78, 39, 128, 0.1) 100%); }
 .bg-pink    { background: linear-gradient(90deg, rgba(179, 34, 106, 0.9) 0%, rgba(179, 34, 106, 0.1) 100%); }
-.bg-grey    { background: linear-gradient(90deg, rgba(50, 50,
+.bg-grey    { background: linear-gradient(90deg, rgba(50, 50, 50, 0.9) 0%, rgba(50, 50, 50, 0.1) 100%); }
+.bg-teal    { background: linear-gradient(90deg, rgba(16, 85, 82, 0.9) 0%, rgba(16, 85, 82, 0.1) 100%); }
+
+/* === RESPONSIVE DESIGN === */
+
+/* Tablet dan bawah (<= 992px) */
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column; /* Tumpuk ke atas */
+        text-align: center;
+    }
+
+    .hero-text {
+        flex-basis: 100%; /* Lebar penuh */
+    }
+
+    .hero-image {
+        flex-basis: 100%;
+        margin-top: 2rem;
+    }
+}
+
+/* HP dan layar kecil (<= 600px) */
+@media (max-width: 600px) {
+    body {
+        padding: 0 0 2rem 0;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .grid-title {
+        font-size: 1.5rem;
+    }
+
+    .character-grid {
+        grid-template-columns: 1fr; /* 1 kolom */
+    }
+}
