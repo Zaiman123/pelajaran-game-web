@@ -1,201 +1,221 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5; /* Warna latar belakang umum */
+/* === BAGIAN HEADER/NAVBAR === */
+.site-header {
+    background-color: #1a1a1a;
+    background-image: url('https://www.transparenttextures.com/patterns/dark-metal-grid.png');
+    padding: 0.5rem 0;
+    border-bottom: 2px solid #111;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-/* Navbar */
 .navbar {
-    background-color: #3b5998; /* Warna biru gelap */
-    color: white;
-    padding: 10px 20px;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.navbar-left {
-    display: flex;
-    align-items: center;
-}
-
-.menu-icon {
-    font-size: 28px;
-    margin-right: 15px;
-    cursor: pointer;
-}
-
-.logo {
-    font-size: 24px;
+.logo a {
+    font-size: 1.5rem;
     font-weight: bold;
+    color: #f0f0f0;
+    text-decoration: none;
+    letter-spacing: 1px;
 }
 
-.navbar-right {
-    display: flex;
-    align-items: center;
-    background-color: #2b457c; /* Warna sedikit lebih terang dari navbar untuk search */
-    border-radius: 5px;
-    padding: 5px 10px;
-}
-
-.search-bar {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 5px;
-    width: 200px; /* Sesuaikan lebar sesuai kebutuhan */
-}
-
-.search-bar::placeholder {
-    color: #aeb8c9;
-}
-
-.search-icon {
-    font-size: 20px;
-    margin-left: 5px;
-}
-
-/* Container utama */
-.container {
-    display: flex;
-    padding: 20px;
-    background-color: #a3c4f3; /* Warna biru terang untuk body area */
-    height: calc(100vh - 70px - 120px); /* Tinggi dinamis: total tinggi - navbar - footer */
-    overflow-y: auto; /* Scrollable jika kontennya terlalu banyak */
-}
-
-.main-content {
-    flex-grow: 1;
-    margin-right: 20px;
-}
-
-/* Featured Game */
-.featured-game {
-    background-color: #d1d9e6; /* Warna abu-abu terang */
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 30px;
-    text-align: center;
-    position: relative;
-    height: 200px; /* Tinggi untuk area featured game */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.featured-image {
-    background-color: #f7a0a5; /* Warna pink untuk placeholder gambar utama */
-    width: 80%; /* Lebar placeholder gambar */
-    max-width: 500px;
-    height: 120px; /* Tinggi placeholder gambar */
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-.featured-controls {
-    display: flex;
-    gap: 15px;
-}
-
-.btn {
-    background-color: #e0e0e0; /* Warna abu-abu untuk tombol */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    color: #333;
-}
-
-.btn.play-now {
-    background-color: #ffffff; /* Warna putih untuk tombol play now */
-    border: 1px solid #ccc;
-}
-
-/* Game Grid */
-.game-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Kolom responsif */
-    gap: 20px;
-}
-
-.game-card {
-    background-color: #e0e0e0; /* Warna abu-abu untuk kartu game */
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.game-thumbnail {
-    background-color: #c9c9c9; /* Warna abu-abu gelap untuk thumbnail */
-    width: 100%;
-    height: 100px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.game-title {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.game-info {
-    display: block;
-    font-size: 0.9em;
-    color: #666;
-}
-
-/* Sidebar Kanan */
-.sidebar-right {
-    width: 50px; /* Lebar sidebar */
-    background-color: #3b5998; /* Warna biru gelap */
-    border-radius: 8px;
-    flex-shrink: 0; /* Mencegah sidebar menyusut */
-}
-
-/* Footer */
-.footer {
-    background-color: #3b5998; /* Warna biru gelap */
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap; /* Agar footer bisa responsif */
-    text-align: center;
-    height: 120px;
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 150px; /* Lebar minimum setiap section */
-    margin: 10px;
-}
-
-.footer-section h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.icon-placeholder {
-    width: 30px;
-    height: 30px;
-    background-color: #e0e0e0; /* Warna abu-abu untuk placeholder ikon */
-    border-radius: 5px;
-}
-
-.footer-section p {
+.main-nav ul {
     margin: 0;
-    color: #ccc;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 5.5rem;
 }
+
+.main-nav a {
+    color: #c0c0c0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+.download-btn {
+    background-color: #00a09a;
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #00c4bf;
+}
+
+/* === BAGIAN HERO SECTION BARU === */
+.hero-section {
+    background-color: #1a1a1d;
+    color: #ffffff;
+    padding: 5rem 0;
+    background-image:
+        radial-gradient(ellipse at 90% 80%, rgba(199, 53, 26, 0.2), transparent 50%),
+        radial-gradient(ellipse at 10% 20%, rgba(85, 37, 134, 0.2), transparent 50%);
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.hero-text {
+    flex-basis: 45%;
+}
+
+.hero-text h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0 0 1rem 0;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #a0a8b4;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.hero-button {
+    display: inline-block;
+    border: 2px solid #ffffff;
+    padding: 0.8rem 2.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #ffffff;
+    color: #1a1a1d;
+}
+
+.hero-image {
+    flex-basis: 55%;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* === KODE CSS LAMA (DENGAN PENYESUAIAN) === */
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: #1a1a1d;
+    color: #e0e0e0;
+    padding-bottom: 3rem;
+}
+
+.character-select-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.grid-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0 0 2rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+}
+
+.character-card {
+    position: relative;
+    display: block;
+    height: 120px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center 25%;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.character-card:hover {
+    transform: scale(1.05) translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.character-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.7rem 1rem;
+    color: #ffffff;
+}
+
+.character-info h3 {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.slayer-m   { background-image: url('https://placehold.co/300x120/334/white?text=Slayer+M'); }
+.slayer-f   { background-image: url('https://placehold.co/300x120/522/white?text=Slayer+F'); }
+.fighter-f  { background-image: url('https://placehold.co/300x120/662/white?text=Fighter+F'); }
+.fighter-m  { background-image: url('https://placehold.co/300x120/252/white?text=Fighter+M'); }
+.gunner-m   { background-image: url('https://placehold.co/300x120/334/white?text=Gunner+M'); }
+.gunner-f   { background-image: url('https://placehold.co/300x120/522/white?text=Gunner+F'); }
+.mage-m     { background-image: url('https://placehold.co/300x120/424/white?text=Mage+M'); }
+.mage-f     { background-image: url('https://placehold.co/300x120/525/white?text=Mage+F'); }
+.priest-m   { background-image: url('https://placehold.co/300x120/444/white?text=Priest+M'); }
+.priest-f   { background-image: url('https://placehold.co/300x120/444/white?text=Priest+F'); }
+.thief      { background-image: url('https://placehold.co/300x120/255/white?text=Thief'); }
+.knight     { background-image: url('https://placehold.co/300x120/525/white?text=Knight'); }
+
+.bg-blue    { background: linear-gradient(90deg, rgba(3, 66, 128, 0.9) 0%, rgba(3, 66, 128, 0.1) 100%); }
+.bg-red     { background: linear-gradient(90deg, rgba(140, 24, 53, 0.9) 0%, rgba(140, 24, 53, 0.1) 100%); }
+.bg-yellow  { background: linear-gradient(90deg, rgba(179, 101, 2, 0.9) 0%, rgba(179, 101, 2, 0.1) 100%); }
+.bg-green   { background: linear-gradient(90deg, rgba(3, 115, 55, 0.9) 0%, rgba(3, 115, 55, 0.1) 100%); }
+.bg-purple  { background: linear-gradient(90deg, rgba(78, 39, 128, 0.9) 0%, rgba(78, 39, 128, 0.1) 100%); }
+.bg-pink    { background: linear-gradient(90deg, rgba(179, 34, 106, 0.9) 0%, rgba(179, 34, 106, 0.1) 100%); }
+.bg-grey    { background: linear-gradient(90deg, rgba(50, 50,
