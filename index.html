@@ -164,6 +164,16 @@
 
     </main>
 
+    <script>
+    // Menimpa isi .character-select-container dengan iframe game Unity saat tombol ditekan
+    document.querySelector('.hero-button').addEventListener('click', function(e) {
+        e.preventDefault();
+        const charSelect = document.querySelector('.character-select-container');
+        if (!charSelect) return;
+        charSelect.innerHTML = '<iframe src="game/index.html" width="1080" height="810" style="border:0;box-shadow:0 2px 16px #0004;" allowfullscreen></iframe>';
+    });
+    </script>
+
 
 
 </body>
